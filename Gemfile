@@ -10,9 +10,9 @@ group :development do
   gem "jeweler", "~> 1.5.2"
   gem "rspec"
   gem "shoulda"
-  gem 'mongo', "~> 1.1"
+  gem 'mongo', "= 1.3.1"
   gem 'mongo_ext'
-  gem "mongoid", "~> 2.0.1"
+  gem "mongoid", "= 2.4.3"
   gem "bson_ext", "~> 1.3"
   gem "database_cleaner"
 end

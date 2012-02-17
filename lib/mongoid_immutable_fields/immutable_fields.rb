@@ -20,7 +20,7 @@ module Mongoid
       changed_as_symbols.each do |field|
         if immutable_field_names.include? field
           errors.add( field, 'is immutable and cannot be updated' )
-          self.reset_attribute! field.to_s
+          self.send :reset_attribute!, field.to_s
         end
       end
     end

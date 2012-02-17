@@ -6,16 +6,17 @@ require 'rubygems'
 Dir["./spec/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
-  
+
+  DatabaseCleaner.strategy = :truncation
+
   Mongoid.configure do |mconfig|
+    mconfig.skip_version_check = true
     name = "monogid_immutable_fields_test"
     host = "localhost"
     port = 27017
     mconfig.database = Mongo::Connection.new.db(name)
   end
-  
-  DatabaseCleaner.strategy = :truncation
-  
+
   config.before(:each) do
     DatabaseCleaner.clean
   end

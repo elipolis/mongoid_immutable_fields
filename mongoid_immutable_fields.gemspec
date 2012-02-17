@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{mongoid_immutable_fields}
-  s.version = "0.3.0"
+  s.name = "mongoid_immutable_fields"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jeff Bozek"]
-  s.date = %q{2011-04-19}
-  s.description = %q{Prevent fields from being updated by including a mongoid module and marking the fields as immutable.}
-  s.email = %q{jeff.bozek@gmail.com}
+  s.date = "2012-02-17"
+  s.description = "Prevent fields from being updated by including a mongoid module and marking the fields as immutable."
+  s.email = "jeff.bozek@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.markdown"
@@ -21,11 +21,11 @@ Gem::Specification.new do |s|
     "lib/mongoid_immutable_fields/immutable_fields.rb",
     "lib/mongoid_immutable_fields/mongoid_filthy.rb"
   ]
-  s.homepage = %q{http://github.com/jeffbozek/mongoid_immutable_fields}
+  s.homepage = "http://github.com/jeffbozek/mongoid_immutable_fields"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.5.3}
-  s.summary = %q{A simple gem that allows for creating immutable fields on your Mongoid documents.}
+  s.rubygems_version = "1.8.10"
+  s.summary = "A simple gem that allows for creating immutable fields on your Mongoid documents."
   s.test_files = [
     "spec/immutable_fields_spec.rb",
     "spec/spec_helper.rb",
@@ -40,38 +40,38 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
       s.add_development_dependency(%q<rspec>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
-      s.add_development_dependency(%q<mongo>, ["~> 1.1"])
+      s.add_development_dependency(%q<mongo>, ["= 1.3.1"])
       s.add_development_dependency(%q<mongo_ext>, [">= 0"])
-      s.add_development_dependency(%q<mongoid>, ["~> 2.0.1"])
+      s.add_development_dependency(%q<mongoid>, ["= 2.4.3"])
       s.add_development_dependency(%q<bson_ext>, ["~> 1.3"])
       s.add_development_dependency(%q<database_cleaner>, [">= 0"])
-      s.add_runtime_dependency(%q<mongo>, ["~> 1.1"])
-      s.add_runtime_dependency(%q<mongoid>, ["~> 2.0.1"])
+      s.add_runtime_dependency(%q<mongo>, ["= 1.3.1"])
+      s.add_runtime_dependency(%q<mongoid>, ["= 2.4.3"])
     else
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
       s.add_dependency(%q<rspec>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
-      s.add_dependency(%q<mongo>, ["~> 1.1"])
+      s.add_dependency(%q<mongo>, ["= 1.3.1"])
       s.add_dependency(%q<mongo_ext>, [">= 0"])
-      s.add_dependency(%q<mongoid>, ["~> 2.0.1"])
+      s.add_dependency(%q<mongoid>, ["= 2.4.3"])
       s.add_dependency(%q<bson_ext>, ["~> 1.3"])
       s.add_dependency(%q<database_cleaner>, [">= 0"])
-      s.add_dependency(%q<mongo>, ["~> 1.1"])
-      s.add_dependency(%q<mongoid>, ["~> 2.0.1"])
+      s.add_dependency(%q<mongo>, ["= 1.3.1"])
+      s.add_dependency(%q<mongoid>, ["= 2.4.3"])
     end
   else
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
     s.add_dependency(%q<rspec>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
-    s.add_dependency(%q<mongo>, ["~> 1.1"])
+    s.add_dependency(%q<mongo>, ["= 1.3.1"])
     s.add_dependency(%q<mongo_ext>, [">= 0"])
-    s.add_dependency(%q<mongoid>, ["~> 2.0.1"])
+    s.add_dependency(%q<mongoid>, ["= 2.4.3"])
     s.add_dependency(%q<bson_ext>, ["~> 1.3"])
     s.add_dependency(%q<database_cleaner>, [">= 0"])
-    s.add_dependency(%q<mongo>, ["~> 1.1"])
-    s.add_dependency(%q<mongoid>, ["~> 2.0.1"])
+    s.add_dependency(%q<mongo>, ["= 1.3.1"])
+    s.add_dependency(%q<mongoid>, ["= 2.4.3"])
   end
 end
 

@@ -21,11 +21,11 @@ GEM
     mongo (1.3.1)
       bson (>= 1.3.1)
     mongo_ext (0.19.3)
-    mongoid (2.4.3)
+    mongoid (2.4.4)
       activemodel (~> 3.1)
       mongo (~> 1.3)
       tzinfo (~> 0.3.22)
-    multi_json (1.0.4)
+    multi_json (1.1.0)
     rake (0.8.7)
     rspec (2.5.0)
       rspec-core (~> 2.5.0)
@@ -48,6 +48,6 @@ DEPENDENCIES
   jeweler (~> 1.5.2)
   mongo (= 1.3.1)
   mongo_ext
-  mongoid (= 2.4.3)
+  mongoid (= 2.4.4)
   rspec
   shoulda

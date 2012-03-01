@@ -12,7 +12,7 @@ group :development do
   gem "shoulda"
   gem 'mongo', "= 1.3.1"
   gem 'mongo_ext'
-  gem "mongoid", "= 2.4.3"
+  gem "mongoid", "= 2.4.4"
   gem "bson_ext", "~> 1.3"
   gem "database_cleaner"
 end

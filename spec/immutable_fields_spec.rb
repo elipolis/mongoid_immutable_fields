@@ -19,6 +19,18 @@ describe Mongoid::ImmutableFields do
     
   end
   
+  describe 'when persisting a document with immutable fields and an after_create call that re-saves the document' do
+    before(:each) do
+      @dummy = DummyDocumentAfterCreate.new(:name => 'Test', :description => 'Test document.', :reference_id => 'abc123')
+    end
+  
+    it 'should be persisted normally' do
+      # Right now the only way for this to work is to actually execute a self.reload as the first step in an after_create.
+      @dummy.save.should eq true
+      @dummy.errors.should be_empty
+    end
+  end
+  
   describe 'when updating a document with immutable fields' do
     
     before(:each) do

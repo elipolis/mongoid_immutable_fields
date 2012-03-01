@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "mongoid_immutable_fields"
-  s.version = "0.4.0"
+  s.version = "0.5.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jeff Bozek"]
-  s.date = "2012-02-17"
+  s.date = "2012-03-01"
   s.description = "Prevent fields from being updated by including a mongoid module and marking the fields as immutable."
   s.email = "jeff.bozek@gmail.com"
   s.extra_rdoc_files = [
@@ -29,7 +29,8 @@ Gem::Specification.new do |s|
   s.test_files = [
     "spec/immutable_fields_spec.rb",
     "spec/spec_helper.rb",
-    "spec/support/dummy_document.rb"
+    "spec/support/dummy_document.rb",
+    "spec/support/dummy_document_after_create.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -42,11 +43,11 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<mongo>, ["= 1.3.1"])
       s.add_development_dependency(%q<mongo_ext>, [">= 0"])
-      s.add_development_dependency(%q<mongoid>, ["= 2.4.3"])
+      s.add_development_dependency(%q<mongoid>, ["= 2.4.4"])
       s.add_development_dependency(%q<bson_ext>, ["~> 1.3"])
       s.add_development_dependency(%q<database_cleaner>, [">= 0"])
       s.add_runtime_dependency(%q<mongo>, ["= 1.3.1"])
-      s.add_runtime_dependency(%q<mongoid>, ["= 2.4.3"])
+      s.add_runtime_dependency(%q<mongoid>, ["= 2.4.4"])
     else
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
@@ -54,11 +55,11 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<mongo>, ["= 1.3.1"])
       s.add_dependency(%q<mongo_ext>, [">= 0"])
-      s.add_dependency(%q<mongoid>, ["= 2.4.3"])
+      s.add_dependency(%q<mongoid>, ["= 2.4.4"])
       s.add_dependency(%q<bson_ext>, ["~> 1.3"])
       s.add_dependency(%q<database_cleaner>, [">= 0"])
       s.add_dependency(%q<mongo>, ["= 1.3.1"])
-      s.add_dependency(%q<mongoid>, ["= 2.4.3"])
+      s.add_dependency(%q<mongoid>, ["= 2.4.4"])
     end
   else
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
@@ -67,11 +68,11 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<mongo>, ["= 1.3.1"])
     s.add_dependency(%q<mongo_ext>, [">= 0"])
-    s.add_dependency(%q<mongoid>, ["= 2.4.3"])
+    s.add_dependency(%q<mongoid>, ["= 2.4.4"])
     s.add_dependency(%q<bson_ext>, ["~> 1.3"])
     s.add_dependency(%q<database_cleaner>, [">= 0"])
     s.add_dependency(%q<mongo>, ["= 1.3.1"])
-    s.add_dependency(%q<mongoid>, ["= 2.4.3"])
+    s.add_dependency(%q<mongoid>, ["= 2.4.4"])
   end
 end
 

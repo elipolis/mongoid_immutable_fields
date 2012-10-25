@@ -2,25 +2,23 @@ module Mongoid
 
   module ImmutableFields
     extend ActiveSupport::Concern
-    
+
     included do
-      validate :check_immutability, :on => :update
+      validate :check_immutability, :unless => :new_record?
       class_attribute :immutable_field_names
-      delegate :immutable_field_names, :to => "self.class"
     end
-    
+
     module ClassMethods
-      def immutable_fields(*field_names)
-        self.immutable_field_names = field_names
+      def immutable_fields(*fields)
+        self.immutable_field_names = fields.map(&:to_s)
       end
     end
-    
+
   private
     def check_immutability
-      changed_as_symbols.each do |field|
-        if immutable_field_names.include? field
-          errors.add( field, 'is immutable and cannot be updated' )
-          self.send :reset_attribute!, field.to_s
+      changed.each do |field|
+        if self.immutable_field_names.include?(field)
+          self.errors.add( field, 'is immutable and cannot be updated' )
         end
       end
     end

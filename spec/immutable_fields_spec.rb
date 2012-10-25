@@ -1,48 +1,51 @@
 require 'spec_helper'
 
 describe Mongoid::ImmutableFields do
-  
-  describe 'when persisting a document with immutable fields' do
-    
-    before(:each) do
-      @dummy = DummyDocument.new(:name => 'Test', :description => 'Test document.', :reference_id => 'abc123')
-    end
-  
-    it 'should be persisted normally' do
-      @dummy.save.should eq true
-    end
-    
-    it 'should be persisted normally when immutable fields change prior to initial persistence' do
-      @dummy.name = 'Test2'
-      @dummy.save.should eq true
-    end
-    
-  end
-  
-  describe 'when persisting a document with immutable fields and an after_create call that re-saves the document' do
-    before(:each) do
-      @dummy = DummyDocumentAfterCreate.new(:name => 'Test', :description => 'Test document.', :reference_id => 'abc123')
-    end
-  
-    it 'should be persisted normally' do
-      # Right now the only way for this to work is to actually execute a self.reload as the first step in an after_create.
-      @dummy.save.should eq true
-      @dummy.errors.should be_empty
-    end
-  end
-  
-  describe 'when updating a document with immutable fields' do
-    
-    before(:each) do
-      @dummy = DummyDocument.create(:name => 'Test', :description => 'Test document.', :reference_id => 'abc123')
-    end
-    
-    it 'should not allow a document to be persisted if an immutable field has changed' do
-      @dummy.name = 'New Test'
-      @dummy.save.should eq false
-      @dummy.errors[:name].include?("is immutable and cannot be updated").should eq true
-    end
-    
-  end
 
+  describe "#save" do
+
+    context "on a new record" do
+
+      let(:document) { DummyDocument.new(:name => 'Name', :description => 'Description', :reference_id => 'abc123') }
+
+      it 'should pass' do
+        document.save.should eq true
+      end
+
+      context 'when an immutable field is changed before initial persistence' do
+        before { document.name = 'Test2' }
+
+        it 'should pass' do
+          document.save.should eq true
+        end
+      end
+
+    end
+
+    context "on a persisted record" do
+      let(:document) { DummyDocument.create!(:name => 'Name', :description => 'Description', :reference_id => 'abc123') }
+
+      context 'when a mutable field has changed' do
+        before { document.description = 'Updated Description' }
+
+        it 'should pass' do
+          document.save.should eq true
+        end
+      end
+
+      context 'when an immutable field has changed' do
+        before { document.name = 'Updated Name' }
+
+        it 'should fail' do
+          document.save.should eq false
+        end
+
+        it 'should populate the errors entry' do
+          document.save
+          document.errors[:name].should == [ "is immutable and cannot be updated" ]
+        end
+
+      end
+    end
+  end
 end

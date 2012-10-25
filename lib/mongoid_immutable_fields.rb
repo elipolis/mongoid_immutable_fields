@@ -1,2 +1,1 @@
-require 'mongoid_immutable_fields/mongoid_filthy'
 require 'mongoid_immutable_fields/immutable_fields'

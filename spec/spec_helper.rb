@@ -9,13 +9,7 @@ RSpec.configure do |config|
 
   DatabaseCleaner.strategy = :truncation
 
-  Mongoid.configure do |mconfig|
-    mconfig.skip_version_check = true
-    name = "monogid_immutable_fields_test"
-    host = "localhost"
-    port = 27017
-    mconfig.database = Mongo::Connection.new.db(name)
-  end
+  Mongoid.connect_to("monogid_immutable_fields_test")
 
   config.before(:each) do
     DatabaseCleaner.clean
